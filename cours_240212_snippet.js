@@ -7,6 +7,13 @@ const phrase = "bonjour " + nom;
 // le contenu de la variable est ajouté en l'entourant de ${variable}
 const phrase = `bonjour ${nom}`;
 
+/*--------------*/
+/* une fonction */
+/*--------------*/
+function truc() {}
+// ou
+const truc = () => {};
+
 /*---------------------*/
 /* une fonction simple */
 /*---------------------*/
@@ -135,15 +142,15 @@ function faitCouleur() {
   en fonction des possibilités du navigateur
   usage : repete();
   ----------------------------------------------------*/
-  const repete = () => {
-    setTimeout(() => {
-      requestAnimationFrame(repete);
-      // mettre le code ici
-      liste.forEach((contenu) => {
-        contenu.style.backgroundColor = faitCouleur();
-      });
-    }, 1000);
-  };
+  function repete() {
+      setTimeout(function() {
+          requestAnimationFrame(repete);
+          // mettre le code ici
+          liste.forEach((contenu, index) => {
+            contenu.style.backgroundColor = faitCouleur();
+          });
+      }, 1000);
+  }
   repete();
 /* ------------------------------------------------------------
   chargement d'un fichier externe (ici un fichier txt ou html)
