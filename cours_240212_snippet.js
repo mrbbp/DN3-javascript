@@ -17,7 +17,7 @@ function ditBonjour(aQui) {
 /*-----------------------------*/
 /* la même en fonction fléchée */
 /*-----------------------------*/
-ditBonjour = (aQui) => {
+const ditBonjour = (aQui) => {
   console.log(`bonjour ${aQui}`);
 }
 /* on l'invoque comme ceci  a fonction est déclarée avant qu'on l'utilise */
@@ -26,7 +26,7 @@ ditBonjour("éric");
 
 /* une fonction peut renvoyer des données
    on utilise le mot return , suivi la donnée à renvoyer */
-ditBonjour = (aQui) => {
+const ditBonjour = (aQui) => {
   return `bonjour ${aQui}`;
 }
 console.log(ditBonjour("éric"));
@@ -46,7 +46,7 @@ function faitCouleur() {
 /* ---------------------------------------------------------
 /* créer une table (une liste) avec chaque mot, à partir d'une phrase
 /* --------------------------------------------------------- */
-const table = phrase.split("Vos beaux yeux belle marquise d'amour me font mourrir");
+const table = "Vos beaux yeux belle marquise d'amour me font mourrir".split(" ");
 
 
 /* boucler sur le contenu d'une table case / case (liste)
@@ -76,7 +76,7 @@ liste.forEach((contenu, index) => {
 liste.forEach((contenu, index) => {
   // ajoute chaque mot entouré d'un span
   const span = document.createElement("span");
-  span.innerHTML = contenu + " ";
+  span.innerHTML = `${contenu} `;
   document.body.appenChild(span);
 });
 
@@ -88,6 +88,7 @@ liste.forEach((contenu, index) => {
   // ajoute chaque mot entouré d'un span
   const span = document.createElement("span");
   const txt = document.createTextNode(contenu+" ");
+  // const txt = document.createTextNode(`${contenu} `);
   span.appendChild(txt);
   document.body.appenChild(span);
 });
@@ -96,18 +97,27 @@ liste.forEach((contenu, index) => {
 /*----------------------------------------
     en ajoutant tout ce qui a été vu avant
   ---------------------------------------*/
-const table = phrase.split("Vos beaux yeux belle marquise d'amour me font mourrir");
-const liste = [];
-table.forEach((contenu, index) => {
-  // ajoute chaque mot entouré d'un span
-  const span = document.createElement("span");
-  const txt = document.createTextNode(contenu+" ");
-  span.style.backgroundColor = faitCouleur();
-  span.appendChild(txt);
-  // ajouter à la liste
-  liste.push(span);
-  document.body.appenChild(span);
-});
+function faitCouleur() {
+    const hue = Math.round(Math.random()*360);
+    const sat = 100;
+    const lum = Math.round((Math.random()*40)+30);
+    return "hsl("+hue+", "+sat+"%, "+lum+"%)";
+    // hsl(180,100%,50%);
+  }
+  const table = "Vos beaux yeux belle marquise d'amour me font mourrir".split(" ");
+  const liste = [];
+  table.forEach((contenu, index) => {
+    // ajoute chaque mot entouré d'un span
+    const span = document.createElement("span");
+    span.id = `lapin_${index}`;
+    // const txt = document.createTextNode(contenu+" ");
+    const txt = document.createTextNode(`${contenu} `);
+    span.style.backgroundColor = faitCouleur();
+    span.appendChild(txt);
+    // ajouter à la liste
+    liste.push(span);
+    document.body.appendChild(span);
+  });
 
 /* ------------------------------------------------------------
   chargement d'un fichier externe (ici un fichier txt ou html)
