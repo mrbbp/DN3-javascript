@@ -119,6 +119,31 @@ function faitCouleur() {
     document.body.appendChild(span);
   });
 
+/*  ---------------------------------------------------
+  répéter une opération toutes les x 1000e de seconde
+  à la brute
+  usage : const repete = setInterval(fonction, temps);
+  ----------------------------------------------------*/
+  const repete = setInterval(() => {
+    liste.forEach((contenu, index) => {
+      contenu.style.backgroundColor = faitCouleur();
+    });
+  }, 1000);
+
+  /*  ---------------------------------------------------
+  répéter une opération toutes les x 1000e de seconde
+  en fonction des possibilités du navigateur
+  usage : repete();
+  ----------------------------------------------------*/
+  function repete() {
+      setTimeout(function() {
+          requestAnimationFrame(repete);
+          // mettre le code ici
+          liste.forEach((contenu, index) => {
+            contenu.style.backgroundColor = faitCouleur();
+          });
+      }, 1000);
+  }
 /* ------------------------------------------------------------
   chargement d'un fichier externe (ici un fichier txt ou html)
 /* ------------------------------------------------------------*/
