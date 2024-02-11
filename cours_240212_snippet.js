@@ -135,15 +135,16 @@ function faitCouleur() {
   en fonction des possibilités du navigateur
   usage : repete();
   ----------------------------------------------------*/
-  function repete() {
-      setTimeout(function() {
-          requestAnimationFrame(repete);
-          // mettre le code ici
-          liste.forEach((contenu, index) => {
-            contenu.style.backgroundColor = faitCouleur();
-          });
-      }, 1000);
-  }
+  const repete = () => {
+    setTimeout(() => {
+      requestAnimationFrame(repete);
+      // mettre le code ici
+      liste.forEach((contenu) => {
+        contenu.style.backgroundColor = faitCouleur();
+      });
+    }, 1000);
+  };
+  repete();
 /* ------------------------------------------------------------
   chargement d'un fichier externe (ici un fichier txt ou html)
 /* ------------------------------------------------------------*/
