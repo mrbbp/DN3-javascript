@@ -46,6 +46,7 @@ function faitCouleur() {
   const sat = 100;
   const lum = Math.round((Math.random()*40)+30);
   return "hsl("+hue+", "+sat+"%, "+lum+"%)";
+  // return `hsl(${hue}, ${sat}%, ${lum+}%)`;
   // hsl(180,100%,50%);
 }
 /* usage : document.body.style.backgroundColor = faitCouleur(); */
