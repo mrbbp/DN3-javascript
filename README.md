@@ -5,7 +5,10 @@ Quelques exemple de code en javascript pour commencer et faire
 - une fonction
 - une fonction simple
 - la même en fonction fléchée
+- Une fonction peut renvoyer un objet
 - une fonction de couleur hsl
+- sélectionner un élement dans le DOM
+- sélectionner tous les élements qui correspondent à la requête dans le DOM
 - créer une table (une liste) avec chaque mot, à partir d'une phrase
 - boucler sur le contenu d'une table case / case (liste)
 - créer un élément (un tag) dans le DOM - version courte
