@@ -31,8 +31,10 @@ const ditBonjour = (aQui) => {
 ditBonjour("éric");
 // renvoie dans la console : "bonjour éric"
 
-/* une fonction peut renvoyer des données
-   on utilise le mot return , suivi la donnée à renvoyer */
+/* --------------------------------------
+  une fonction peut renvoyer des données
+   on utilise le mot return , suivi la donnée à renvoyer
+   ---------------------------------------- */
 const ditBonjour = (aQui) => {
   return `bonjour ${aQui}`;
 }
@@ -46,10 +48,21 @@ function faitCouleur() {
   const sat = 100;
   const lum = Math.round((Math.random()*40)+30);
   return "hsl("+hue+", "+sat+"%, "+lum+"%)";
-  // return `hsl(${hue}, ${sat}%, ${lum+}%)`;
   // hsl(180,100%,50%);
 }
 /* usage : document.body.style.backgroundColor = faitCouleur(); */
+
+/* --------------------------------------
+    sélectionner un élément dans le DOM
+/* --------------------------------------*/
+const element = document.querySelector(element);
+// element peut être une classe (".class"), un id ("#id"), un tag ("tag")
+
+/* --------------------------------------
+    sélectionner tous les éléments répondant à la requête dans le DOM
+/* --------------------------------------*/
+const element = document.querySelectorAll(element);
+// element peut être une classe (".class"), un id ("#id"), un tag ("tag")
 
 /* ---------------------------------------------------------
 /* créer une table (une liste) avec chaque mot, à partir d'une phrase
