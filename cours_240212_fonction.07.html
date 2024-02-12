@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style media="screen">
+      @font-face {
+        font-family: SourceSansVariable;
+        font-weight: 100 800;
+        src: url(_fonts/SourceSans3VF-Roman.ttf.woff2) format("woff2");
+      }
+      * { margin:0; padding: 0; }
+      html { font-size: 100%; /* 1rem = 1em = 16px */}
+      body {
+        line-height: 120%;
+        /*display: flex;
+        justify-content: center;
+        align-items: center;*/
+        /* deco */
+        background-color: #f0f0f0;
+        color: #333;
+        font-family: SourceSansVariable;
+        font-weight: 100;
+        font-size : 2rem;
+      }
+    /* aside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333;
+      height: 3rem;
+      width: 50vw;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      font-size: 1rem;
+      color: #eee;
+    } */
+    span {
+      padding: 0 .25rem;
+      color: black;
+    }
+
+    .caviar {
+      background-color : rgba(0,0,0,.92);
+
+    }
+    </style>
+  </head>
+  <body>
+  <!-- <aside>commentaire</aside> -->
+    <script>
+      let table;
+      const liste = [];
+      const affiche = () => {
+        // mettre le code ici
+        liste.forEach((contenu) => {
+          contenu.classList.add("caviar");
+          if (Math.random() > 0.9 && contenu.innerText.trim().length > 3) {
+            contenu.classList.toggle("caviar");
+          }
+        });
+      };
+
+      const init = () => {
+        table.forEach((contenu) => {
+          // ajoute chaque mot entouré d'un span
+          const span = document.createElement("span");
+          // const txt = document.createTextNode(contenu+" ");
+          const txt = document.createTextNode(`${contenu} `);
+          // const espace = document.createTextNode(` `);
+          span.classList.add("caviar");
+          span.appendChild(txt);
+          // ajouter à la liste
+          liste.push(span);
+          document.body.appendChild(span);
+          // document.body.appendChild(espace);
+        });
+        affiche();
+      };
+
+      // charge le texte
+      fetch('michelet_brut_ext.txt')
+        .then((data) => data.text())
+        .then((texte) => {
+          // crée la table avec les mots
+          table = texte.split(" ");
+          // lance init();
+          init();
+          // la variable `texte` est le contenu du fichier chargé
+        })
+        .catch((err) => {
+          console.log("erreur de chargement:", err);
+        });
+
+      window.addEventListener("click", affiche);
+    </script>
+  </body>
+</html>
