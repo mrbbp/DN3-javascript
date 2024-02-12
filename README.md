@@ -1,6 +1,6 @@
 Quelques exemple de code en javascript pour commencer et faire
 
-## Menu
+## snippet.js
 - concaténer (assembler / coller) une chaine de caractère (une String) en plusieurs morceaux
 - une fonction
 - une fonction simple
