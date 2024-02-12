@@ -165,3 +165,20 @@ fetch('fichier.txt')
 .catch((err) => {
   console.log("erreur de chargement:", err);
 });
+/* ---------------------
+  Manipuler les classes
+ -----------------------*/
+/*Ajouter une classe (css)*/
+contenu.classList.add("maClasse");
+// ou
+document.querySelector("tag").classList.add("maClasse");
+
+/*supprimer une classe (css)*/
+contenu.classList.remove("maClasse");
+// ou
+document.querySelector("tag").classList.remove("maClasse");
+
+/*jongler avec une classe (css)*/
+contenu.classList.toggle("maClasse");
+// ou
+document.querySelector("tag").classList.toggle("maClasse");
